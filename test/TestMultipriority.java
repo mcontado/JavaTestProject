@@ -1,0 +1,21 @@
+package test;
+
+public class TestMultipriority extends Thread {
+	public void run() {
+		System.out.println("running thread name is:"
+				+ Thread.currentThread().getName());
+		System.out.println("running thread priority is:"
+				+ Thread.currentThread().getPriority());
+
+	}
+
+	public static void main(String args[]) {
+		TestMultipriority m1 = new TestMultipriority();
+		TestMultipriority m2 = new TestMultipriority();
+		m1.setPriority(Thread.MIN_PRIORITY);
+		m2.setPriority(Thread.MAX_PRIORITY);
+		m1.start();
+		m2.start();
+
+	}
+}
