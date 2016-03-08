@@ -1,3 +1,4 @@
+import java.util.Stack;
 
 public class ReverseString {
 
@@ -21,9 +22,24 @@ public class ReverseString {
 		//return sb.toString();
 		return reverse;
 	}
+	
+	//Reverse String using Stack
+	public static void reverseStringStack(String str) {
+		Stack<Character> stack = new Stack<Character>();
+		char[] strArr = str.toCharArray();
+		for (char c:strArr) {
+			stack.push(c);
+		}
+		while (!stack.isEmpty()) {
+			System.out.print(stack.pop());
+		}
+		
+		
+	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		System.out.println(reverseStringIte("delrio"));
+		//System.out.println(reverseStringIte("delrio"));
+		reverseStringStack("maria");
 	}
 
 }

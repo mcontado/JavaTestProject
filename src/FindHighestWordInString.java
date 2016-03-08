@@ -14,8 +14,6 @@ public class FindHighestWordInString {
 			}
 		}
 		
-		String tmpKey = "";
-		int tmpVal = 0;
 		
 		Entry<String, Integer> maxEntry = null;
 		

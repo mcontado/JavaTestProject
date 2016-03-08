@@ -31,7 +31,8 @@ public class AnagramChecker {
 			int index = copyOfStr2.indexOf(c);
 			//int index = copyOfStr2.charAt(c);
 			if (index != -1) {
-				copyOfStr2 = copyOfStr2.substring(0, index) + copyOfStr2.substring(index+1, copyOfStr2.length());
+				copyOfStr2 = copyOfStr2.substring(0, index) + 
+							 copyOfStr2.substring(index+1, copyOfStr2.length());
 			} else {
 				return false;
 			}
@@ -47,7 +48,8 @@ public class AnagramChecker {
 		String str2 = "silent";
 		
 		//System.out.print(str1.substring(1,4));
-		System.out.println(checkAnagram(str1, str2));
+		//System.out.println(checkAnagram(str1, str2));
+		System.out.println(str1.substring(6));
 	}
 
 }
