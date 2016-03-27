@@ -1,4 +1,4 @@
-
+import java.util.Stack;
 
 public class MyLinkedList {
 	private Node head;
@@ -110,16 +110,64 @@ public class MyLinkedList {
 		return prevNode;
 	}
 	
+	public void printNthNodeFromLast(int n) {
+		
+		Node node = head;
+		int len = 0;
+		
+		while (node != null) {
+			node = node.next;
+			len++;
+		}
+		
+		if (len < n) 
+			return;
+		
+		node = head;
+		
+		for (int i=1; i<len-n+1; i++) {
+			node = node.next;
+		}
+		
+		System.out.println(node.item);
+		
+	}
+	
+	
+	public boolean linkedListIsPalindrome() {
+		Node node = head;
+		
+		Stack<Object> stack = new Stack<Object>();
+		
+		while(node != null) {
+			stack.push(node.item);
+			node = node.next;
+		}
+		
+		node = head;
+		while (node != null) {
+			if (node.item == stack.pop()) {
+				node = node.next;
+			} else {
+				return false;
+			}
+		}
+		return true;
+		
+	}
 	
 
 	public static void main(String[] args) {
 		MyLinkedList list = new MyLinkedList();
-		list.append("101");
-		list.append("102");
-		list.append("103");
-		list.traverse();
-		list.reverseLinkedList();
-		list.traverse();
+		list.append("R");
+		list.append("A");
+		list.append("D");
+		list.append("A");
+		list.append("R");
+		list.append("S");
+		//list.traverse();
+		System.out.println(list.linkedListIsPalindrome());
+		//list.printNthNodeFromLast(4);
 		
 	}
 
