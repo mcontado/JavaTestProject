@@ -5,8 +5,7 @@ public class ReplaceSpaces {
 		String str = "the quick brown fox";
 		char[] strArray = str.toCharArray();
 		replaceSpaces(strArray, str.length());
-		 
-
+		  
 	}
 	
 	public static void replaceSpaces(char[] str, int length) {

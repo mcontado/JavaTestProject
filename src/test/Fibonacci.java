@@ -20,10 +20,25 @@ public class Fibonacci {
     	}
     	return fibonacci;
     }
+    
+    public static int fibMemoize(int n) {
+    	
+    	 int [] memo = new int[n];
+    	 
+    	 if (n <= 1) return n;
+    	 
+    	 if (memo[n-1] != 0)  
+    		 return memo[n];
+    	 else 
+    		 memo[n-1] = fibMemoize(n-1) + fibMemoize(n-2);
+    	 
+    	 return memo[n-1];
+    	
+    }
 
     public static void main(String[] args) {
-        int n = 0;
-        System.out.println( "Fib " + n + ": " + fibIte(0));
+        int n = 10;
+        System.out.println( "Fib " + n + ": " + fibMemoize(n));
     }
 	
 }

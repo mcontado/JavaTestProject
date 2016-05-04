@@ -1,38 +1,46 @@
 package test;
-
+import java.util.Stack;
 
 public class ReverseString {
-	public static void main(String[] args) {
-		  String str = "delrio";
-	      System.out.println("Original String: " + str);
-	      
-	      //Reverse string using StringBuffer
-	     // StringBuffer strBuf = new StringBuffer(str).reverse();
-	     // System.out.println("Reverse String using StringBuffer: " + strBuf);
-	      
-	      //Reverse string iteratively
-	      System.out.println("Reverse string iteratively: " + reverseStr(str));
-	      
-	     // System.out.println("Reverse string recursively: " + reverseRecursively(str));
+
+	public static String reverseStringRecursive(String str) {
+		//base case
+		if (str.length() < 2) return str;
+		
+		//recursive case
+		return reverseStringRecursive(str.substring(1)) + str.charAt(0);
 	}
 	
-	
-	public static String reverseStr(String str) {
-		StringBuilder strBuilder = new StringBuilder();
-
+	public static String reverseStringIte(String str) {
+		
+		
+		//StringBuffer sb = new StringBuffer();
+		String reverse="";
 		for (int i=str.length()-1; i>=0; i--) {
-			strBuilder.append(str.charAt(i));
+			//sb.append(str.charAt(i));
+			reverse += str.charAt(i);
+		}
+		//return sb.toString();
+		return reverse;
+	}
+	
+	//Reverse String using Stack
+	public static void reverseStringStack(String str) {
+		Stack<Character> stack = new Stack<Character>();
+		char[] strArr = str.toCharArray();
+		for (char c:strArr) {
+			stack.push(c);
+		}
+		while (!stack.isEmpty()) {
+			System.out.print(stack.pop());
 		}
 		
-		return strBuilder.toString();
-	}
-	
-	public static String reverseRecursively(String str){
-		//base case
-		if (str.length() < 2)
-			return str;
 		
-		return reverseRecursively(str.substring(1)) + str.charAt(0);
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		//System.out.println(reverseStringIte("delrio"));
+		reverseStringStack("maria");
 	}
 
 }
