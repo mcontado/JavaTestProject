@@ -1,5 +1,8 @@
 package test;
 
+import java.util.*;
+import java.util.Stack;
+
 public class BinaryTreeInteger {
 	private TreeNode root;
 	private TreeNode prev;
@@ -54,6 +57,41 @@ public class BinaryTreeInteger {
 			}
 		}
 			
+	}
+	
+	/*Simplified code for Binary tree insertion using recursion*/
+
+	public static TreeNode Insert(TreeNode root,int value)
+	    {
+	        if (root == null) {
+	        	TreeNode newNode = new TreeNode(value);
+	            newNode.left = null;
+	            newNode.right = null;
+	            root = newNode;
+	        } else if (root.value > value) {
+	            root.left = Insert(root.left, value);
+	        } else if (root.value < value) {
+	            root.right = Insert(root.right, value);
+	        }
+	    
+	        return root;
+	    }
+	//Getting the height of the tree
+	public static int height(TreeNode root) {
+//		if (root == null) return 0;
+//		return 1 + Math.max(height(root.left), height(root.right));
+		
+		if (root == null)
+             return 0;
+       
+        int leftDepth = height(root.left);
+        int rightDepth = height(root.right);
+       
+        if (leftDepth > rightDepth) {
+            return leftDepth+1;
+        } else {
+            return rightDepth+1;
+        }
 	}
 	
 	public void displayInOrder(TreeNode nodePtr) {
@@ -121,18 +159,87 @@ public class BinaryTreeInteger {
         }
         return true;
     }
+    
+    public static boolean isValidBST(TreeNode root) {
+        if(root==null)
+            return true;
+     
+        return helper(root, Double.NEGATIVE_INFINITY, Double.POSITIVE_INFINITY);
+    }
+     
+    public static boolean helper(TreeNode root, double low, double high){
+     
+        if(root.value<=low || root.value>=high)
+            return false;
+     
+        if(root.left!=null && !helper(root.left, low, root.value)){
+            return false;
+        }
+     
+        if(root.right!=null && !helper(root.right, root.value, high)){
+            return false;
+        }
+     
+        return true;    
+    }
+    
+    //In order traversal without recursion
+    /*
+    1) Create an empty stack S.
+    2) Initialize current node as root
+    3) Push the current node to S and set current = current->left until current is NULL
+    4) If current is NULL and stack is not empty then 
+         a) Pop the top item from stack.
+         b) Print the popped item, set current = popped_item->right 
+         c) Go to step 3.
+    5) If current is NULL and stack is empty then we are done.
+    */
+    public ArrayList<Integer> inorderTraversal(TreeNode a) {
+    	ArrayList<Integer> res = new ArrayList<Integer>();
+    	
+    	if (a == null) {
+    		return null;
+    	}
+    	
+    	Stack<TreeNode> stack = new Stack<TreeNode>();
+    	TreeNode node = a;
+    	
+    	while (node != null) {
+    		stack.push(node);
+    		node = node.left;
+    	}
+    	
+    	//traverse the tree
+    	while (stack.size() > 0) {
+    		node = stack.pop();
+    		res.add(node.value);
+    		
+    		if (node.right != null) {
+    			node = node.right;
+    			
+    			while (node != null) {
+    				stack.push(node);
+    				node = node.left;
+    			}
+    		}
+ 
+    	} //end while
+    	
+    	return res;
+    	
+	}
 	
 	
 	public static void main(String[] args) {
 		BinaryTreeInteger tree = new BinaryTreeInteger();
 		
-		tree.insert(5);
-		tree.insert(8);
 		tree.insert(3);
-		tree.insert(12);
-		tree.insert(9);
-//		tree.insert(4);
-//		tree.insert(6);
+		tree.insert(5);
+		tree.insert(2);
+		tree.insert(1);
+		tree.insert(4);
+		tree.insert(6);
+		tree.insert(7);
 //		tree.insert(2);
 //		tree.insert(7);
 //		tree.insert(15);
@@ -144,6 +251,7 @@ public class BinaryTreeInteger {
 //        tree.root.right.left = new TreeNode(3);
 //        tree.root.left.left = new TreeNode(1);
        // tree.root.left.right = new TreeNode(3);
+		System.out.println(Double.POSITIVE_INFINITY);
 		System.out.println("Displaying In Order Traversal");
 		tree.displayInOrder();
 //		
@@ -156,6 +264,8 @@ public class BinaryTreeInteger {
             System.out.println("TREE IS BST");
         else
             System.out.println("TREE Not a BST");
+		
+		System.out.println(height(tree.root));
 		
 	}
 }

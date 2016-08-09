@@ -26,16 +26,18 @@ public class ArrayPairSum {
 		if (arr.length < 2) return;
 		
 		Set set = new HashSet(arr.length);
-		
+		int count = 0;
 		for (int value:arr) {
 			int target = sum - value;
-			//if target number is not in set, then add
+			//if target number is not in set, then add the value
 			if (!set.contains(target)) {
 				set.add(value);			
 			} else {
 				System.out.println("PAIRS ==> " + value +  ", " + target);
+				count++;
 			}
 		}
+		System.out.println("TOTAL COUNT OF PAIRS : " + count);
 	}
 	
 	//Sort the array, and use 2 pointers to scan through array from both direction
@@ -66,12 +68,38 @@ public class ArrayPairSum {
 		
 	}
 	
+	
+	//print the indices of the pair
+	public static int[] twoSums(int[] nums, int target) {
+		int[] indices = new int[2];
+		
+		for (int i = 0; i < nums.length; i++) {
+			for (int j = i+1; j < nums.length; j++) {
+				if (nums[i] + nums[j] == target) {
+					indices[0] = i;
+					indices[1] = j;
+					break;	
+				}	
+			}
+		}
+		return indices;		
+	}
+	
+
+
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		int[] arr2 = { 2, 4, 7, 5, 9, 10, -1, 2, -1};
-				
-		//printPairs(arr2, 9);
-		printPairsUsingSet(arr2, 9);
+//		int[] arr2 = { 2, 4, 7, 5, 9, 10, -1, 2, -1};
+//				
+//		//printPairs(arr2, 9);
+		
+		
+		int[] nums = {1,2,3,4,5,6};
+		int target = 7;
+		
+		printPairsUsingSet(nums, target);
+		
+		//System.out.println(Arrays.toString(twoSums(nums, target)));
 				
 	}
 

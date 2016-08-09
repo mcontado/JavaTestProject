@@ -6,15 +6,18 @@ class Animal{
   
 class Dog extends Animal{  
  void eat(){System.out.println("dog is eating...");}  
+ void bark() {System.out.println("dog is barking");}
 }
 
 
 public class OverridingExample {
 
 	public static void main(String[] args) {
-		Dog d = (Dog) new Animal();
-		Animal a = (Animal) new Dog();
-		Dog d1 = d;
+//		Animal a = new Dog();
+//		a.eat();
+	
+//		Animal a = (Animal) new Dog();
+//		Dog d1 = d;
 		
 //		  Animal a=new Animal();
 //		  a.eat();  
@@ -25,8 +28,8 @@ public class OverridingExample {
 //		  Animal an = new Dog();
 //		  an.eat();
 		
-//		  Dog d = (Dog) new Animal();
-//		  d.eat();
+		  Dog d = (Dog) new Animal();
+		  d.eat();
 		  
 		  
 	}

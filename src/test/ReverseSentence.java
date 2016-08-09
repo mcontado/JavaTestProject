@@ -6,7 +6,8 @@ public class ReverseSentence {
 	public static String reverseSentence(String str) {
 		StringBuilder sb = new StringBuilder();
 		
-		String[] words = str.split(" ");
+		String[] words = str.split("\\s+");
+		
 		for (int i=words.length-1; i>=0; i--) {
 			sb.append(words[i]);
 			sb.append(" ");
@@ -30,9 +31,9 @@ public class ReverseSentence {
 	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		String str = "        Coding is awesome!                 ";
+		String str = "        Coding     is     awesome!     ";
 		//System.out.println(reverseSentence(str));
-		reverseUsingStack(str);
+		System.out.println(reverseSentence(str));
 	}
 
 }

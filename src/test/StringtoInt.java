@@ -61,10 +61,10 @@ public class StringtoInt {
 	
 	 public static void main (String args[])
 	    {
-		 String  convertingString="-105";
-		 System.out.println(stringToint(convertingString));
-		 /*
-	        String  convertingString="12025";
+		// String  convertingString="-105";
+		// System.out.println(stringToint(convertingString));
+		 
+	        String  convertingString="543";
 	        System.out.println("String Before Conversion :  "+ convertingString);
 	        
 	        int i = 0, number = 0;
@@ -76,14 +76,15 @@ public class StringtoInt {
 	        	System.out.print(number + "*" + "10 : " );
 	            number *= 10;	
 	            System.out.println(number);
-	            System.out.println("convertingString.charAt(i) :" + convertingString.charAt(i));
-	            number += (convertingString.charAt(i) - '0');
+	            System.out.println("convertingString.charAt("+i+") :" + convertingString.charAt(i));
+	            //System.out.println('5'-'0');
+	            number += (convertingString.charAt(i)-'0');
 	            i++;
 	            System.out.println("2) Number: " + number);
 	           
 	            
 	            
-	        }*/
+	        }
 	        
 	      
 	

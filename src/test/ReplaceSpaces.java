@@ -2,9 +2,12 @@ package test;
 
 public class ReplaceSpaces {
 	public static void main (String[] args) {
-		String str = "the quick brown fox";
-		char[] strArray = str.toCharArray();
-		replaceSpaces(strArray, str.length());
+		//String str = "the quick brown fox";
+		//char[] strArray = str.toCharArray();
+		
+		char[] ch = {'t', 'h', 'e', ' ', 'd', 'o', 'g', ' ', ' ', ' ', ' ', ' ', ' '};
+	    int length = 7;
+		replaceSpaces(ch, length);
 		  
 	}
 	
@@ -30,6 +33,8 @@ public class ReplaceSpaces {
 				newLength = newLength - 1;
 			} //end else
 		}// end for
+		
+		System.out.println(str);
 	}// end method
 }
 

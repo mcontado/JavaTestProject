@@ -66,11 +66,11 @@ public class Recursion {
 	
 	public static void main(String[] args) {
 		int n = 5;
-		System.out.println(factorialMemoize(1));
+		//System.out.println(factorialMemoize(1));
 		
 		//System.out.println(cumulativeSum(n));
 		
-		//System.out.println(sumAllDigits(123456));
+		System.out.println(sumAllDigits(123456));
 
 	}
 

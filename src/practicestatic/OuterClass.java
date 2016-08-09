@@ -1,11 +1,11 @@
 package practicestatic;
 
 public  class OuterClass {
-	private int id = 1;
-	private String name = "First Name";
+	static int id = 1;
+	static String name = "First Name";
 
 	
-	class InnerClass {
+	static class InnerClass {
 		void message() {
 			System.out.println("data is " + id + " and name: " + name);
 		}
@@ -13,9 +13,9 @@ public  class OuterClass {
 	}
 	public static void main(String[] args) {
 		
-		OuterClass outer = new OuterClass();
-		OuterClass.InnerClass inner = outer.new InnerClass();
-		
+		//OuterClass outer = new OuterClass();
+		//OuterClass.InnerClass inner = outer.new InnerClass();
+		OuterClass.InnerClass inner = new OuterClass.InnerClass();
 		inner.message();
 
 	}

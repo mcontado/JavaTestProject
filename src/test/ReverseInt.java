@@ -53,6 +53,29 @@ public class ReverseInt {
 		 
 	}
 	
+	public static int  reverseInteger(int a) {
+		String s = String.valueOf(a);
+		boolean isNegative = false;
+		char[] arr = s.toCharArray();
+		StringBuffer sb = new StringBuffer();
+		
+		
+		if (s.charAt(0) == '-')  {
+			isNegative = true;	
+		}
+		
+		
+		for(int i=arr.length-1; isNegative? i>=1 : i>= 0; i--) {
+			sb.append(arr[i]);
+		}
+		int result = Integer.parseInt(sb.toString());
+		
+		if (isNegative) {
+			result = -result;
+		}
+		return result;
+	}
+	
 	
 	public static void main(String[] args){
 		/*reverseIntUsingStack();
@@ -61,6 +84,9 @@ public class ReverseInt {
 		System.out.println("\n");
 		reverseUsingQueue();*/
 		int[] a = {1,2,3,4,5,6,7};
-		printSameOrder(a);
+		//printSameOrder(a);
+		
+		int b = -123;
+		System.out.println(reverseInteger(b));
 	}
 }

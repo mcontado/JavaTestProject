@@ -1,10 +1,12 @@
 package test;
 import java.util.HashMap;
+import java.util.Hashtable;
 
 public class FirstNonRepeatedChar {
 	public static Character findFirstNonRepChar(String s) {
 		//Create character count hashmap
 		HashMap<Character, Integer> map = new HashMap<Character, Integer>();
+		//Hashtable<Character, Integer> map = new Hashtable<Character, Integer>();
 		Character ch;
 		String copyOfStr = s.replaceAll("\\s", "");
 		char[] strArray = copyOfStr.toCharArray();

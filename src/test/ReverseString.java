@@ -37,10 +37,28 @@ public class ReverseString {
 		
 		
 	}
+	
+	
+	public static String reverseString(String a) {
+		Stack<Character> stack = new Stack<Character>();
+		StringBuffer sb = new StringBuffer();
+		
+		char[] arr = a.toCharArray();
+		for (char c: arr) {
+			stack.push(c);
+		}
+		
+		while (!stack.isEmpty()) {
+			sb.append(stack.pop());
+		}
+		
+		return sb.toString();
+		
+	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		//System.out.println(reverseStringIte("delrio"));
-		reverseStringStack("maria");
+		System.out.println(reverseString("maria"));
 	}
 
 }

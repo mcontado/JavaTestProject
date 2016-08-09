@@ -19,12 +19,13 @@ public class OverridingMethod {
 	public static void main(String args[]) {
 		A a = new A();
 		B b = new B();
-		/*A a = new B();
-		a.method();
-		b.method();*/
+		//A a = new B();
+		//a.method();
+		//b.method();
+	
+		//a = b;
+		//a.method();
 		
-		b = (B) a;
-		a = (A) b;
 		
 	}
 

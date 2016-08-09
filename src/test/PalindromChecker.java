@@ -9,7 +9,10 @@ public class PalindromChecker {
 		//System.out.println(str + " is Palindrome : " + isPalindromeString(str));
 		//System.out.println(str + " is Palindrome : " + isPalindromeIterative(str));
 	
-		System.out.println(isPalindromeIterative(str3));
+		//System.out.println(isPalindromeIterative(str3));
+		
+		int a = -12321;
+		System.out.println(isPalindrome(a));
 		
 	}
 	/*
@@ -52,6 +55,29 @@ public class PalindromChecker {
 		return true;
 	}
 	
+	
+	public static boolean isPalindrome(int a) {
+		String s = String.valueOf(a);
+		if (s.charAt(0) == '-') {
+			return false;
+		} 
+		
+		int start = 0;
+		int end = s.length() - 1;
+		
+		while (start < end) {
+			char left = s.charAt(start);
+			char right = s.charAt(end);
+			
+			if (left != right) {
+				return false;
+			}
+			start++;
+			end--;
+		}
+		
+		return true;
+	}
 	
 	
 }
