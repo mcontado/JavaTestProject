@@ -24,7 +24,7 @@ public class SquareRootOfInteger {
 	    
 	}
 	public static void main(String[] args) {
-		int x = 11;
+		int x = 15;
 		System.out.println(sqrt(x));
 
 	}

@@ -19,7 +19,7 @@ public class ReverseSentence {
 	//reverse using Stack
 	public static void reverseUsingStack(String s) {
 		Stack<String> stack = new Stack<String>();
-		String[] words = s.split(" ");
+		String[] words = s.split("\\s+");
 		
 		for (String str:words) {
 			stack.push(str);
@@ -33,7 +33,8 @@ public class ReverseSentence {
 		// TODO Auto-generated method stub
 		String str = "        Coding     is     awesome!     ";
 		//System.out.println(reverseSentence(str));
-		System.out.println(reverseSentence(str));
+		//System.out.println(reverseSentence(str));
+		reverseUsingStack(str);
 	}
 
 }

@@ -23,7 +23,7 @@ public class BinaryToDecimal {
 	}
 
 	public static void main(String[] args) {
-		int a = 1111;
+		int a = 101;
 		System.out.println(binaryToDecimal(a));
 		
 		System.out.println(binaryToDecimalRecursion(a));

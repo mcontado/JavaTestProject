@@ -4,7 +4,7 @@ import java.util.*;
 import java.util.Stack;
 
 public class BinaryTreeInteger {
-	private TreeNode root;
+	private static TreeNode root;
 	private TreeNode prev;
 	
 	public static class TreeNode {
@@ -154,33 +154,28 @@ public class BinaryTreeInteger {
             // allows only distinct values node
             if (prev != null && node.value <= prev.value )
                 return false;
+            
             prev = node;
             return isBST(node.right);
         }
         return true;
     }
     
-    public static boolean isValidBST(TreeNode root) {
-        if(root==null)
-            return true;
-     
-        return helper(root, Double.NEGATIVE_INFINITY, Double.POSITIVE_INFINITY);
+    public static boolean isValidBST() {
+        return helper(root, Integer.MIN_VALUE, Integer.MAX_VALUE);
     }
      
-    public static boolean helper(TreeNode root, double low, double high){
+    public static boolean helper(TreeNode root, int min, int max){
+    	
+    	if (root == null) 
+    		return true;
      
-        if(root.value<=low || root.value>=high)
+        if(root.value<=min || root.value>=max)
             return false;
      
-        if(root.left!=null && !helper(root.left, low, root.value)){
-            return false;
-        }
-     
-        if(root.right!=null && !helper(root.right, root.value, high)){
-            return false;
-        }
-     
-        return true;    
+        return (helper(root.left, min, root.value-1)   &&
+        		helper(root.right, root.value+1, max));
+        
     }
     
     //In order traversal without recursion
@@ -232,27 +227,17 @@ public class BinaryTreeInteger {
 	
 	public static void main(String[] args) {
 		BinaryTreeInteger tree = new BinaryTreeInteger();
-		
-		tree.insert(3);
-		tree.insert(5);
-		tree.insert(2);
-		tree.insert(1);
-		tree.insert(4);
-		tree.insert(6);
-		tree.insert(7);
-//		tree.insert(2);
-//		tree.insert(7);
-//		tree.insert(15);
-//	
-//		BinaryTreeInteger tree = new BinaryTreeInteger();
-//        tree.root = new TreeNode(4);
-//        tree.root.left = new TreeNode(2);
-//        tree.root.right = new TreeNode(5);
-//        tree.root.right.left = new TreeNode(3);
-//        tree.root.left.left = new TreeNode(1);
+
+
+        tree.root = new TreeNode(4);
+        tree.root.left = new TreeNode(2);
+        tree.root.right = new TreeNode(5);
+        tree.root.left.left = new TreeNode(1);
+        tree.root.left.right = new TreeNode(3);
+    
        // tree.root.left.right = new TreeNode(3);
-		System.out.println(Double.POSITIVE_INFINITY);
-		System.out.println("Displaying In Order Traversal");
+		//System.out.println(Double.POSITIVE_INFINITY);
+		//System.out.println("Displaying In Order Traversal");
 		tree.displayInOrder();
 //		
 //		System.out.println("Displaying PreOrder Traversal");
@@ -265,7 +250,7 @@ public class BinaryTreeInteger {
         else
             System.out.println("TREE Not a BST");
 		
-		System.out.println(height(tree.root));
+		//System.out.println(height(tree.root));
 		
 	}
 }

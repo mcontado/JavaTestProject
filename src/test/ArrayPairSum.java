@@ -94,7 +94,7 @@ public class ArrayPairSum {
 //		//printPairs(arr2, 9);
 		
 		
-		int[] nums = {1,2,3,4,5,6};
+		int[] nums = {1,2,3,4,5,6,7};
 		int target = 7;
 		
 		printPairsUsingSet(nums, target);
